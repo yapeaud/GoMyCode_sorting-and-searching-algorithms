@@ -1,0 +1,28 @@
+ALGORITHM InsertionSort
+VAR
+    tableau : ARRAY OF INTEGER
+    N, i, j, clé : INTEGER
+BEGIN
+    // Initialiser le tableau
+    tableau <- [12, 11, 13, 5, 6]
+    N <- longueur(tableau)
+
+    // Boucle principale
+    FOR i <- 1 TO N - 1 DO
+        clé <- tableau[i]
+        j <- i - 1
+
+        // Insérer "clé" à la bonne position dans la partie triée
+        WHILE j >= 0 AND tableau[j] > clé DO
+            tableau[j + 1] <- tableau[j]
+            j <- j - 1
+        ENDWHILE
+
+        tableau[j + 1] <- clé
+    ENDFOR
+
+    // Afficher le tableau trié
+    POUR i DE 0 A N - 1 FAIRE
+        afficher(tableau[i])
+    FINPOUR
+END
